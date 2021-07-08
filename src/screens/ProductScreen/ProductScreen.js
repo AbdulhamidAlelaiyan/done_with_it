@@ -5,17 +5,17 @@ import ListItem from "../../components/UI/ListItem";
 
 import styles from "./styles";
 
-const initialUserState = {
-    name: "Mosh Hamedani",
-    numOfListings: 5,
-};
+// const initialUserState = {
+//     name: "Mosh Hamedani",
+//     numOfListings: 5,
+// };
 
-const userReducer = (state, action) => {
-    return state;
-};
+// const userReducer = (state, action) => {
+//     return state;
+// };
 
 const ProductScreen = (props) => {
-    const [userState, userDispatch] = useReducer(userReducer, initialUserState);
+    // const [userState, userDispatch] = useReducer(userReducer, initialUserState);
 
     return (
         <View>
@@ -36,7 +36,11 @@ const ProductScreen = (props) => {
             <View>
                 <Text style={styles.seller}>Seller: </Text>
             </View>
-            <ListItem user={userState} />
+            <ListItem
+                title="Mosh Hamedani"
+                subTitle="5 Listings"
+                image={require("../../../assets/mosh.jpg")}
+            />
         </View>
     );
 };

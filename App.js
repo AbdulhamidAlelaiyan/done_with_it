@@ -6,14 +6,18 @@ import WelcomeScreen from "./src/screens/WelcomeScreen";
 import ViewImageScreen from "./src/screens/ViewImageScreen";
 import ProductsListScreen from "./src/screens/ProductsListScreen";
 import ProductScreen from "./src/screens/ProductScreen";
+import MessagesScreen from "./src/screens/MessagesScreen";
+import MyAccountScreen from "./src/screens/MyAccountScreen";
 
 export default function App() {
     return (
         <View style={styles.container}>
             {/* <WelcomeScreen /> */}
-            <ViewImageScreen />
+            {/* <ViewImageScreen /> */}
             {/* <ProductsListScreen /> */}
             {/* <ProductScreen /> */}
+            {/* <MessagesScreen /> */}
+            <MyAccountScreen />
         </View>
     );
 }

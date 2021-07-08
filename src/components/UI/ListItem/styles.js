@@ -3,17 +3,31 @@ import { StyleSheet } from "react-native";
 import colors from "../../../config/colors";
 
 export default StyleSheet.create({
-    userImage: {
+    image: {
         width: 50,
         height: 50,
         borderRadius: 50,
         marginRight: 10,
     },
-    accountContainer: {
+    container: {
         flexDirection: "row",
         padding: 20,
     },
+    info: {
+        color: colors.grey,
+        marginLeft: 15,
+        justifyContent: "center",
+    },
+    listingTitle: {
+        fontSize: 20,
+    },
+    title: {
+        fontSize: 17,
+        fontWeight: "600",
+    },
     listingDetails: {
         color: colors.grey,
+        marginTop: 10,
+        fontSize: 15,
     },
 });
