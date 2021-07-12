@@ -6,15 +6,14 @@ import {
     Button,
     SafeAreaView,
     FlatList,
-    Text,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../../../config/styles";
 
 import AppText from "../AppText";
-import PickerItem from "../PickerItem";
 
 import styles from "./styles";
+import PickerItem from "../PickerItem";
 
 const AppPicker = ({
     icon,
@@ -22,6 +21,7 @@ const AppPicker = ({
     placeholder,
     onSelectItem,
     selectedItem,
+    PickerItemComponent = PickerItem,
     ...rest
 }) => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -73,13 +73,20 @@ const AppPicker = ({
                         keyExtractor={(item) => item.value.toString()}
                         renderItem={({ item }) => {
                             return (
-                                <PickerItem
+                                <PickerItemComponent
                                     item={item}
                                     onPress={() => {
                                         setModalVisible(false);
                                         onSelectItem(item);
                                     }}
                                 />
+                                // <CategoryPickerItem
+                                //     item={item}
+                                //     onPress={() => {
+                                //         setModalVisible(false);
+                                //         onSelectItem(item);
+                                //     }}
+                                // />
                             );
                         }}
                     />

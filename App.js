@@ -19,11 +19,11 @@ export default function App() {
             {/* <ViewImageScreen /> */}
             {/* <ProductsListScreen /> */}
             {/* <ProductScreen /> */}
-            <MessagesScreen />
+            {/* <MessagesScreen /> */}
             {/* <MyAccountScreen /> */}
             {/* <LoginScreen /> */}
             {/* <RegisterScreen /> */}
-            {/* <ListingEditScreen /> */}
+            <ListingEditScreen />
         </View>
     );
 }

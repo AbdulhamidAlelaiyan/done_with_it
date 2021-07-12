@@ -3,7 +3,13 @@ import AppPicker from "../../AppPicker";
 import ErrorMessage from "../ErrorMessage";
 import { useFormikContext } from "formik";
 
-const AppFormPicker = ({ name, placeholder, items, ...rest }) => {
+const AppFormPicker = ({
+    name,
+    placeholder,
+    items,
+    PickerItemComponent,
+    ...rest
+}) => {
     const { setFieldValue, errors, touched, values } = useFormikContext();
 
     return (
@@ -13,6 +19,7 @@ const AppFormPicker = ({ name, placeholder, items, ...rest }) => {
                 placeholder={placeholder}
                 selectedItem={values[name]}
                 onSelectItem={(item) => setFieldValue(name, item)}
+                PickerItemComponent={PickerItemComponent}
                 {...rest}
             />
             <ErrorMessage error={errors[name]} visible={touched[name]} />

@@ -8,6 +8,7 @@ import {
     SubmitButton,
 } from "../../components/UI/forms";
 import Screen from "../../components/UI/Screen";
+import CategoryPickerItem from "../../components/Shop/CategoryPickerItem";
 import validationSchema from "./validationSchema.js";
 
 import styles from "./styles";
@@ -86,6 +87,7 @@ const ListingEditScreen = () => {
                     items={categories}
                     name="category"
                     placeholder="Category"
+                    PickerItemComponent={CategoryPickerItem}
                     style={{ width: "50%" }}
                 />
                 <AppFormField
