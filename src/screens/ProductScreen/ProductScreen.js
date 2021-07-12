@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import { Text, View, Image } from "react-native";
 
-import ListItem from "../../components/UI/ListItem";
+import ListItem from "../../components/UI/lists/ListItem";
 
 import styles from "./styles";
 

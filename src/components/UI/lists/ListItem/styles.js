@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import colors from "../../../config/colors";
+import colors from "../../../../config/colors";
 
 export default StyleSheet.create({
     image: {
@@ -29,5 +29,14 @@ export default StyleSheet.create({
         color: colors.grey,
         marginTop: 10,
         fontSize: 15,
+    },
+    overview: {
+        flexDirection: "row",
+        flex: 1,
+    },
+    rightIcon: {
+        width: 25,
+        height: 25,
+        alignSelf: "center",
     },
 });

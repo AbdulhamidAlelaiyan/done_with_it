@@ -3,13 +3,9 @@ import colors from "../../../config/colors";
 
 export default StyleSheet.create({
     text: {
-        textAlign: "center",
-        fontSize: 18,
-        fontFamily: Platform.select({
-            android: "monospace",
-            ios: "Copperplate",
-        }),
-        color: colors.white,
-        fontWeight: "700",
+        // textAlign: "center",
+        fontSize: 14,
+        // color: colors.white,
+        // fontWeight: "700",
     },
 });

@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, View, ImageBackground, Image } from "react-native";
 
 import AppText from "../../components/UI/AppText";
-import Button from "../../components/UI/Button";
+import AppButton from "../../components/UI/AppButton";
 
 import styles from "./styles";
 

@@ -8,7 +8,9 @@ const Card = (props) => (
         <Image source={props.image} style={styles.cardImage} />
         <View style={styles.textContainer}>
             <Text style={styles.text}>{props.title}</Text>
-            <Text style={[styles.text, styles.price]}>{props.subTitle}</Text>
+            <Text style={[styles.text, styles.price]} numberOfLines={5}>
+                {props.subTitle}
+            </Text>
         </View>
     </TouchableOpacity>
 );

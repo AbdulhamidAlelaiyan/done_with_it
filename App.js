@@ -8,6 +8,9 @@ import ProductsListScreen from "./src/screens/ProductsListScreen";
 import ProductScreen from "./src/screens/ProductScreen";
 import MessagesScreen from "./src/screens/MessagesScreen";
 import MyAccountScreen from "./src/screens/MyAccountScreen";
+import LoginScreen from "./src/screens/LoginScreen";
+import RegisterScreen from "./src/screens/RegisterScreen";
+import ListingEditScreen from "./src/screens/ListingEditScreen";
 
 export default function App() {
     return (
@@ -16,8 +19,11 @@ export default function App() {
             {/* <ViewImageScreen /> */}
             {/* <ProductsListScreen /> */}
             {/* <ProductScreen /> */}
-            {/* <MessagesScreen /> */}
-            <MyAccountScreen />
+            <MessagesScreen />
+            {/* <MyAccountScreen /> */}
+            {/* <LoginScreen /> */}
+            {/* <RegisterScreen /> */}
+            {/* <ListingEditScreen /> */}
         </View>
     );
 }

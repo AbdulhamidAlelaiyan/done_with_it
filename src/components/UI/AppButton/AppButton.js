@@ -4,10 +4,9 @@ import { TouchableOpacity } from "react-native";
 import AppText from "../AppText";
 
 import colors from "../../../config/colors";
-
 import styles from "./styles";
 
-const Button = (props) => {
+const AppButton = (props) => {
     return (
         <TouchableOpacity
             style={[
@@ -23,4 +22,4 @@ const Button = (props) => {
     );
 };
 
-export default Button;
+export default AppButton;

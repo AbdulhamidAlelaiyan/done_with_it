@@ -1,10 +1,11 @@
 import React, { useState, useReducer } from "react";
 import { FlatList } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Screen from "../../components/UI/Screen";
-import ListItem from "../../components/UI/ListItem";
-import ListItemSeparator from "../../components/UI/ListItemSeparator";
-import ListItemDeleteAction from "../../components/UI/ListItemDeleteAction";
+import ListItem from "../../components/UI/lists/ListItem";
+import ListItemSeparator from "../../components/UI/lists/ListItemSeparator";
+import ListItemDeleteAction from "../../components/UI/lists/ListItemDeleteAction";
 
 import { messagesInitState, messagesReducer, DELETE_MESSAGE } from "./reducer";
 
@@ -33,6 +34,10 @@ const MessagesScreen = () => {
                         title={item.title}
                         subTitle={item.description}
                         image={require("../../../assets/mosh.jpg")}
+                        showChevron={true}
+                        IconComponent={MaterialCommunityIcons}
+                        iconColor="black"
+                        iconSize={15}
                         onPress={() => console.log("Message Selected")}
                         renderRightActions={() => (
                             <ListItemDeleteAction

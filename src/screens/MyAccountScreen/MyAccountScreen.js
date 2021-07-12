@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Screen from "../../components/UI/Screen";
-import ListItem from "../../components/UI/ListItem";
+import ListItem from "../../components/UI/lists/ListItem";
 
 import styles from "./styles";
 import colors from "../../config/colors";

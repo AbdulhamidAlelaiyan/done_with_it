@@ -1,9 +1,9 @@
 import React from "react";
 import { Text, View, Image, TouchableHighlight } from "react-native";
-import colors from "../../../config/colors";
+import colors from "../../../../config/colors";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-import Icon from "../Icon";
+import Icon from "../../Icon";
 
 import styles from "./styles";
 
@@ -17,11 +17,15 @@ const ListItem = ({
     IconComponent,
     iconName,
     iconColor,
+    showChevron,
+    iconSize,
 }) => {
     const listDetails = subTitle ? (
         <View style={styles.info}>
             <Text style={styles.listingTitle}>{title}</Text>
-            <Text style={styles.listingDetails}>{subTitle}</Text>
+            <Text style={styles.listingDetails} numberOfLines={5}>
+                {subTitle}
+            </Text>
         </View>
     ) : (
         <View style={styles.info}>
@@ -29,15 +33,26 @@ const ListItem = ({
         </View>
     );
 
-    const listImage = IconComponent ? (
+    const listImage =
+        IconComponent && !showChevron ? (
+            <Icon
+                name={iconName}
+                color={iconColor}
+                size={35}
+                IconComponent={IconComponent}
+            />
+        ) : (
+            <Image source={image} style={styles.image} />
+        );
+
+    const chevron = showChevron && (
         <Icon
-            name={iconName}
+            name="chevron-right"
             color={iconColor}
-            size={35}
+            size={iconSize}
             IconComponent={IconComponent}
+            style={styles.rightIcon}
         />
-    ) : (
-        <Image source={image} style={styles.image} />
     );
 
     return (
@@ -48,8 +63,11 @@ const ListItem = ({
                 activeOpacity={0.6}
             >
                 <View style={[styles.container, style]}>
-                    {listImage}
-                    {listDetails}
+                    <View style={styles.overview}>
+                        {listImage}
+                        {listDetails}
+                    </View>
+                    {chevron}
                 </View>
             </TouchableHighlight>
         </Swipeable>
