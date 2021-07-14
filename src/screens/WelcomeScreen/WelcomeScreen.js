@@ -1,12 +1,20 @@
 import React from "react";
 import { SafeAreaView, View, ImageBackground, Image } from "react-native";
+import AppButton from "../../components/UI/AppButton";
 
 import AppText from "../../components/UI/AppText";
-import AppButton from "../../components/UI/AppButton";
 
 import styles from "./styles";
 
-const WelcomeScreen = (props) => {
+const WelcomeScreen = ({ navigation }) => {
+    const goToLogin = () => {
+        navigation.navigate("Login");
+    };
+
+    const goToRegister = () => {
+        navigation.navigate("Register");
+    };
+
     return (
         <ImageBackground
             source={require("../../../assets/background.jpg")}
@@ -23,9 +31,17 @@ const WelcomeScreen = (props) => {
                 </AppText>
 
                 <View style={styles.buttonsContainer}>
-                    <Button title="Login" color="primary" />
+                    <AppButton
+                        title="Login"
+                        color="primary"
+                        onPress={goToLogin}
+                    />
 
-                    <Button title="Sign Up" color="secondary" />
+                    <AppButton
+                        title="Sign Up"
+                        color="secondary"
+                        onPress={goToRegister}
+                    />
                 </View>
             </SafeAreaView>
         </ImageBackground>

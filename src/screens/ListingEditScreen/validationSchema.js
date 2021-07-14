@@ -5,4 +5,8 @@ export default Yup.object().shape({
     price: Yup.number().required().min(1).max(10000).label("Price"),
     description: Yup.string().label("Description"),
     category: Yup.object().required().nullable().label("Category"),
+    imageUris: Yup.array()
+        .min(1, "Please Select at least one image.")
+        .required()
+        .label("Image"),
 });

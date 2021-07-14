@@ -5,31 +5,20 @@ import ListItem from "../../components/UI/lists/ListItem";
 
 import styles from "./styles";
 
-// const initialUserState = {
-//     name: "Mosh Hamedani",
-//     numOfListings: 5,
-// };
-
-// const userReducer = (state, action) => {
-//     return state;
-// };
-
-const ProductScreen = (props) => {
-    // const [userState, userDispatch] = useReducer(userReducer, initialUserState);
+const ProductScreen = ({ navigation, route }) => {
+    console.log(route);
 
     return (
         <View>
             <View>
                 <Image
                     style={styles.productImage}
-                    source={require("../../../assets/jacket.jpg")}
+                    source={route.params.product.imageUri}
                 />
                 <View style={styles.textContainer}>
-                    <Text style={styles.text}>
-                        {props.title ?? "Red Jacket"}
-                    </Text>
+                    <Text style={styles.text}>{route.params.product.name}</Text>
                     <Text style={styles.price}>
-                        {props.subTitle ?? "$900.00"}
+                        {`$${route.params.product.price}`}
                     </Text>
                 </View>
             </View>

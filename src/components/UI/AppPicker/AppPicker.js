@@ -22,6 +22,7 @@ const AppPicker = ({
     onSelectItem,
     selectedItem,
     PickerItemComponent = PickerItem,
+    numberOfColumns = 1,
     ...rest
 }) => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -43,9 +44,16 @@ const AppPicker = ({
                         />
                     )}
                     {selectedItem ? (
-                        <AppText style={styles.text}>
-                            {selectedItem.label}
-                        </AppText>
+                        <>
+                            <MaterialCommunityIcons
+                                name={selectedItem.icon}
+                                size={20}
+                                style={styles.icon}
+                            />
+                            <AppText style={styles.text}>
+                                {selectedItem.label}
+                            </AppText>
+                        </>
                     ) : (
                         <AppText style={styles.placeholder}>
                             {placeholder}
@@ -68,7 +76,7 @@ const AppPicker = ({
                         onPress={() => setModalVisible(false)}
                     />
                     <FlatList
-                        numColumns={3}
+                        numColumns={numberOfColumns}
                         data={items}
                         keyExtractor={(item) => item.value.toString()}
                         renderItem={({ item }) => {
@@ -80,13 +88,6 @@ const AppPicker = ({
                                         onSelectItem(item);
                                     }}
                                 />
-                                // <CategoryPickerItem
-                                //     item={item}
-                                //     onPress={() => {
-                                //         setModalVisible(false);
-                                //         onSelectItem(item);
-                                //     }}
-                                // />
                             );
                         }}
                     />

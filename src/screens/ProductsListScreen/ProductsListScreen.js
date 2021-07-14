@@ -14,11 +14,15 @@ const productsInitalState = [
 
 const productsReducer = (state, action) => state;
 
-const ProductsListScreen = (props) => {
+const ProductsListScreen = ({ navigation }) => {
     const [productsState, productsDispatch] = useReducer(
         productsReducer,
         productsInitalState
     );
+
+    const goToProduct = (product) => {
+        navigation.navigate("ProductDetails", { product });
+    };
 
     const productCards = productsInitalState.map((product) => {
         return (
@@ -26,6 +30,7 @@ const ProductsListScreen = (props) => {
                 title={product.name}
                 subTitle={`$${product.price}`}
                 image={product.imageUri}
+                onPress={goToProduct.bind(null, product)}
             />
         );
     });

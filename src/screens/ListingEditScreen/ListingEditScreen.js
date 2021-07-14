@@ -1,5 +1,5 @@
-import React from "react";
-import { Text } from "react-native";
+import React, { useEffect, useState } from "react";
+import * as ImagePicker from "expo-image-picker";
 
 import {
     AppForm,
@@ -9,55 +9,31 @@ import {
 } from "../../components/UI/forms";
 import Screen from "../../components/UI/Screen";
 import CategoryPickerItem from "../../components/Shop/CategoryPickerItem";
+import useLocation from "../../hooks/useLocation";
 import validationSchema from "./validationSchema.js";
 
 import styles from "./styles";
 
+import categories from "../../utils/constants/categories.constants";
+import AppFormImagePicker from "../../components/UI/forms/AppFormImagePicker";
+
 const ListingEditScreen = () => {
-    const categories = [
-        {
-            label: "Furniture",
-            value: 1,
-            icon: "floor-lamp",
-            backgroundColor: "#fc5c65",
-        },
-        {
-            label: "Cars",
-            value: 2,
-            icon: "car",
-            backgroundColor: "#fd9644",
-        },
-        {
-            label: "Camera",
-            value: 3,
-            icon: "camera",
-            backgroundColor: "#fed330",
-        },
-        {
-            label: "Games",
-            value: 4,
-            icon: "cards",
-            backgroundColor: "#26de81",
-        },
-        {
-            label: "Clothing",
-            value: 5,
-            icon: "shoe-heel",
-            backgroundColor: "#2bcbba",
-        },
-        {
-            label: "Sports",
-            value: 5,
-            icon: "basketball",
-            backgroundColor: "#45aaf2",
-        },
-        {
-            label: "Movies & Music",
-            value: 6,
-            icon: "headphones",
-            backgroundColor: "#4b7bec",
-        },
-    ];
+    const [permissionAccepted, setPermissionAccepted] = useState(false);
+    const location = useLocation();
+
+    const requestImageRollPermission = async () => {
+        const { status } =
+            await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== "granted") {
+            alert("You can't pick an image wihtout giving the permission.");
+        } else {
+            setPermissionAccepted(true);
+        }
+    };
+
+    useEffect(() => {
+        requestImageRollPermission();
+    }, []);
 
     return (
         <Screen style={styles.container}>
@@ -67,10 +43,12 @@ const ListingEditScreen = () => {
                     price: "",
                     description: "",
                     category: null,
+                    imageUris: [],
                 }}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={() => console.log(location)}
                 validationSchema={validationSchema}
             >
+                {permissionAccepted && <AppFormImagePicker name="imageUris" />}
                 <AppFormField
                     maxLength={255}
                     name="title"
@@ -88,6 +66,7 @@ const ListingEditScreen = () => {
                     name="category"
                     placeholder="Category"
                     PickerItemComponent={CategoryPickerItem}
+                    numberOfColumns={3}
                     style={{ width: "50%" }}
                 />
                 <AppFormField

@@ -4,7 +4,10 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import styles from "./styles";
 
 const Card = (props) => (
-    <TouchableOpacity style={[styles.card, props.style]}>
+    <TouchableOpacity
+        style={[styles.card, props.style]}
+        onPress={props.onPress}
+    >
         <Image source={props.image} style={styles.cardImage} />
         <View style={styles.textContainer}>
             <Text style={styles.text}>{props.title}</Text>

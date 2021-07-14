@@ -10,14 +10,7 @@ import styles from "./styles";
 const PickerItem = ({ item, onPress }) => (
     <TouchableOpacity style={styles.container} onPress={onPress}>
         <View style={styles.item}>
-            <Icon
-                name={item.icon}
-                color={item.backgroundColor}
-                size={25}
-                IconComponent={MaterialCommunityIcons}
-                style={{ width: 50, height: 50 }}
-            />
-            <AppText style={styles.text}>{item.label}</AppText>
+            <AppText>{item.label}</AppText>
         </View>
     </TouchableOpacity>
 );
