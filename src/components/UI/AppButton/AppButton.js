@@ -15,7 +15,7 @@ const AppButton = (props) => {
                 props.style,
             ]}
             activeOpacity={0.8}
-            onPress={props.onPress ?? (() => console.log("Button clicked!"))}
+            onPress={props.onPress}
         >
             <AppText style={styles.buttonText}>{props.title}</AppText>
         </TouchableOpacity>

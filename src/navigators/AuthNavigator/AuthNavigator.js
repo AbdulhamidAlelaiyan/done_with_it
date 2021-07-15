@@ -6,6 +6,7 @@ import LoginScreen from "../../screens/LoginScreen";
 import RegisterScreen from "../../screens/RegisterScreen";
 
 import options from "./options";
+import routes from "./routes";
 
 const Stack = createStackNavigator();
 
@@ -13,17 +14,17 @@ const AuthNavigator = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                options={options.WelcomeScreen}
-                name="Welcome"
+                name={routes.WELCOME}
                 component={WelcomeScreen}
+                options={options.WelcomeScreen}
             />
             <Stack.Screen
-                name="Login"
+                name={routes.LOGIN}
                 component={LoginScreen}
                 options={options.LoginScreen}
             />
             <Stack.Screen
-                name="Register"
+                name={routes.REGISTER}
                 component={RegisterScreen}
                 options={options.RegisterScreen}
             />

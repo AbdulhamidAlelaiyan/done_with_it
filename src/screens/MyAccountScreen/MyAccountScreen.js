@@ -7,10 +7,11 @@ import ListItem from "../../components/UI/lists/ListItem";
 
 import styles from "./styles";
 import colors from "../../config/colors";
+import routes from "../../navigators/AccountNavigator/routes";
 
 const MyAccountScreen = ({ navigation }) => {
     const goToMessages = () => {
-        navigation.navigate("AccountMessages");
+        navigation.navigate(routes.ACCOUNT_MESSAGES);
     };
 
     return (

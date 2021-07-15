@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native";
 import Card from "../../components/UI/Card";
 
 import Product from "../../models/Product";
+import routes from "../../navigators/ProductsNavigator/routes";
 
 import styles from "./styles";
 
@@ -21,7 +22,7 @@ const ProductsListScreen = ({ navigation }) => {
     );
 
     const goToProduct = (product) => {
-        navigation.navigate("ProductDetails", { product });
+        navigation.navigate(routes.PRODUCT_DETAILS, { product });
     };
 
     const productCards = productsInitalState.map((product) => {

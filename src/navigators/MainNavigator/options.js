@@ -14,7 +14,6 @@ export default {
                 <MaterialCommunityIcons name="home" size={size} color={color} />
             );
         },
-        title: "Feed",
     },
     AddProductScreen: {
         tabBarButton: () => {

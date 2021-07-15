@@ -5,14 +5,15 @@ import AppButton from "../../components/UI/AppButton";
 import AppText from "../../components/UI/AppText";
 
 import styles from "./styles";
+import routes from "../../navigators/AuthNavigator/routes";
 
 const WelcomeScreen = ({ navigation }) => {
     const goToLogin = () => {
-        navigation.navigate("Login");
+        navigation.navigate(routes.LOGIN);
     };
 
     const goToRegister = () => {
-        navigation.navigate("Register");
+        navigation.navigate(routes.REGISTER);
     };
 
     return (

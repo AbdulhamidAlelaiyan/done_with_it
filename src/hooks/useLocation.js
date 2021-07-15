@@ -10,7 +10,6 @@ export default () => {
             if (status === "granted") {
                 const { coords } = await Location.getCurrentPositionAsync({});
                 setLocation(coords);
-                console.log(coords);
             }
         } catch (error) {
             console.log(error);

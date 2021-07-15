@@ -2,6 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import options from "./options.js";
+import routes from "./routes.js";
 
 // Screens:
 import ListingEditScreen from "../../screens/ListingEditScreen/ListingEditScreen.js";
@@ -16,17 +17,17 @@ const MainNavigator = () => {
     return (
         <TabNavigator.Navigator tabBarOptions={options.navigator}>
             <TabNavigator.Screen
-                name="Feed"
+                name={routes.FEED}
                 component={ProductsNavigator}
                 options={options.FeedScreen}
             />
             <TabNavigator.Screen
-                name="AddProduct"
+                name={routes.ADD_PRODUCT}
                 component={ListingEditScreen}
                 options={options.AddProductScreen}
             />
             <TabNavigator.Screen
-                name="Account"
+                name={routes.ACCOUNT}
                 component={AccountNavigator}
                 options={options.AccountScreen}
             />

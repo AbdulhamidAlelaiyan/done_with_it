@@ -6,8 +6,6 @@ import ListItem from "../../components/UI/lists/ListItem";
 import styles from "./styles";
 
 const ProductScreen = ({ navigation, route }) => {
-    console.log(route);
-
     return (
         <View>
             <View>

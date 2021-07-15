@@ -19,7 +19,6 @@ const MessagesScreen = () => {
     );
 
     const deleteMessage = (messageId) => {
-        console.log("here!");
         messagesDispatch({ type: DELETE_MESSAGE, payload: messageId });
     };
 
