@@ -37,7 +37,7 @@ const MessagesScreen = () => {
                         IconComponent={MaterialCommunityIcons}
                         iconColor="black"
                         iconSize={15}
-                        onPress={() => console.log("Message Selected")}
+                        onPress={() => {}}
                         renderRightActions={() => (
                             <ListItemDeleteAction
                                 onPress={deleteMessage.bind(null, item.id)}

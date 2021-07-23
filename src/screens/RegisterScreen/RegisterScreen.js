@@ -6,9 +6,7 @@ import Screen from "../../components/UI/Screen";
 import validationSchema from "./ValidationSchema";
 
 const RegisterScreen = () => {
-    const submitRegisteration = () => {
-        console.log();
-    };
+    const submitRegisteration = () => {};
 
     return (
         <Screen style={styles.container}>

@@ -6,6 +6,7 @@ import colors from "../../../../config/colors";
 
 const SubmitButton = ({ style, ...otherProps }) => {
     const { handleSubmit } = useFormikContext();
+
     return (
         <>
             <AppButton

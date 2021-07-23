@@ -8,7 +8,7 @@ const Card = (props) => (
         style={[styles.card, props.style]}
         onPress={props.onPress}
     >
-        <Image source={props.image} style={styles.cardImage} />
+        <Image source={{ uri: props.imageUrl }} style={styles.cardImage} />
         <View style={styles.textContainer}>
             <Text style={styles.text}>{props.title}</Text>
             <Text style={[styles.text, styles.price]} numberOfLines={5}>

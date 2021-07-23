@@ -9,10 +9,7 @@ import styles from "./styles";
 import validationSchema from "./validationSchema";
 
 const LoginScreen = ({ children, style, ...rest }) => {
-    const submitLogin = () => {
-        console.log("Email:", email);
-        console.log("Password:", password);
-    };
+    const submitLogin = () => {};
 
     return (
         <Screen style={styles.container}>

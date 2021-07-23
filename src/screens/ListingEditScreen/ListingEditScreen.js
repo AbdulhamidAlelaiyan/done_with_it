@@ -9,16 +9,21 @@ import {
 } from "../../components/UI/forms";
 import Screen from "../../components/UI/Screen";
 import CategoryPickerItem from "../../components/Shop/CategoryPickerItem";
-import useLocation from "../../hooks/useLocation";
+import AppFormImagePicker from "../../components/UI/forms/AppFormImagePicker";
+
+import useLocation from "../../hooks/useLocation.hook";
 import validationSchema from "./validationSchema.js";
+import listingApi from "../../api/listings";
 
 import styles from "./styles";
 
 import categories from "../../utils/constants/categories.constants";
-import AppFormImagePicker from "../../components/UI/forms/AppFormImagePicker";
+import UploadScreen from "../UploadScreen";
 
 const ListingEditScreen = () => {
     const [permissionAccepted, setPermissionAccepted] = useState(false);
+    const [uploadVisible, setUploadVisible] = useState(false);
+    const [progress, setProgress] = useState(0);
     const location = useLocation();
 
     const requestImageRollPermission = async () => {
@@ -31,24 +36,43 @@ const ListingEditScreen = () => {
         }
     };
 
+    const handleSubmit = async (listing, { resetForm }) => {
+        setProgress(0);
+        setUploadVisible(true);
+        const response = await listingApi.addListing(
+            { ...listing, location },
+            (progress) => setProgress(progress)
+        );
+        if (!response.ok) {
+            setUploadVisible(false);
+            return alert("Could not save the product!");
+        }
+        resetForm();
+    };
+
     useEffect(() => {
         requestImageRollPermission();
     }, []);
 
     return (
         <Screen style={styles.container}>
+            <UploadScreen
+                onDone={() => setUploadVisible(false)}
+                visible={uploadVisible}
+                progress={progress}
+            />
             <AppForm
                 initialValues={{
                     title: "",
                     price: "",
                     description: "",
                     category: null,
-                    imageUris: [],
+                    images: [],
                 }}
-                onSubmit={() => console.log(location)}
+                onSubmit={handleSubmit}
                 validationSchema={validationSchema}
             >
-                {permissionAccepted && <AppFormImagePicker name="imageUris" />}
+                {permissionAccepted && <AppFormImagePicker name="images" />}
                 <AppFormField
                     maxLength={255}
                     name="title"

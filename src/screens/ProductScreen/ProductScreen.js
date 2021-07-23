@@ -11,7 +11,7 @@ const ProductScreen = ({ navigation, route }) => {
             <View>
                 <Image
                     style={styles.productImage}
-                    source={route.params.product.imageUri}
+                    source={{ uri: route.params.product.images[0].url }}
                 />
                 <View style={styles.textContainer}>
                     <Text style={styles.text}>{route.params.product.name}</Text>
